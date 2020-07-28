@@ -3,6 +3,7 @@
 #include <limits>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 namespace ekumen {
 namespace math {
@@ -20,11 +21,23 @@ namespace math {
     return x_;
   }
 
+  double & Vector3::x(void) {
+    return x_;
+  }
+
   double Vector3::y(void) const{
     return y_;
   }
 
+  double & Vector3::y(void) {
+    return y_;
+  }
+
   double Vector3::z(void) const{
+    return z_;
+  }
+
+  double & Vector3::z(void) {
     return z_;
   }
 
@@ -39,27 +52,35 @@ namespace math {
 		   x_*vector1.y() - y_*vector1.x());
   }
 
-  const bool operator==(const Vector3& vector1, const Vector3& vector2){
+  const bool Vector3::operator==(const Vector3& vector1) const {
     return(
-      (vector1.x_==vector2.x_) &&
-      (vector1.y_==vector2.y_) &&
-      (vector1.z_==vector2.z_));
+      (x_==vector1.x_) &&
+      (y_==vector1.y_) &&
+      (z_==vector1.z_));
   }
 
-  const bool operator!=(const Vector3& vector1, const Vector3& vector2){
+  const bool Vector3::operator!=(const Vector3& vector1) const{
     return(!(
-      (vector1.x_==vector2.x_) &&
-      (vector1.y_==vector2.y_) &&
-      (vector1.z_==vector2.z_)
+      (x_==vector1.x_) &&
+      (y_==vector1.y_) &&
+      (z_==vector1.z_)
     ));
   }
 
-  const Vector3 operator+(const Vector3& vector1, const Vector3& vector2){
-    return Vector3(vector1.x_+vector2.x_, vector1.y_+vector2.y_, vector1.z_+vector2.z_);
+  const Vector3 Vector3::operator+(const Vector3& vector1) const{
+    return Vector3(x_+vector1.x_, y_+vector1.y_, z_+vector1.z_);
   }
 
-  const Vector3 operator-(const Vector3& vector1, const Vector3& vector2){
-    return Vector3(vector1.x_-vector2.x_, vector1.y_-vector2.y_, vector1.z_-vector2.z_);
+  const Vector3 Vector3::operator-(const Vector3& vector1) const{
+    return Vector3(x_-vector1.x_, y_-vector1.y_, z_-vector1.z_);
+  }
+
+  const Vector3 Vector3::operator*(const Vector3& vector1) const{
+    return Vector3(x_*vector1.x_, y_*vector1.y_, z_*vector1.z_);
+  }
+
+  const Vector3 Vector3::operator/(const Vector3& vector1) const{
+    return Vector3(x_/vector1.x_, y_/vector1.y_, z_/vector1.z_);
   }
 
   const Vector3 operator*(const Vector3& vector1, const int& scalar){
@@ -68,14 +89,6 @@ namespace math {
 
   const Vector3 operator*(const int& scalar, const Vector3& vector1){
     return Vector3(vector1.x_*scalar, vector1.y_*scalar, vector1.z_*scalar);
-  }
-
-  const Vector3 operator*(const Vector3& vector1, const Vector3& vector2){
-    return Vector3(vector1.x_*vector2.x_, vector1.y_*vector2.y_, vector1.z_*vector2.z_);
-  }
-
-  const Vector3 operator/(const Vector3& vector1, const Vector3& vector2){
-    return Vector3(vector1.x_/vector2.x_, vector1.y_/vector2.y_, vector1.z_/vector2.z_);
   }
 
   double Vector3::operator[](int index) const{
@@ -87,18 +100,26 @@ namespace math {
     else return z_;
   }
 
-  // I can't get this to compile idk why
-  /*
-  const void operator<<(std::stringstream& stream_, const Vector3& vector){
-    stream_ << "hey";
-    
-    // stream_ << "(x: " << vector.x_
-    // 	    << ", y: " << vector.y_
-    // 	    << ", z: " << vector.z_
-    // 	    << ")";
+  double & Vector3::operator[](int index) {
+    // How do I implement this check to return a valid reference?
+    /*
+    if(index<0 || index>2){
+      return -1.0;
+    }
+    */
+    if(index==0) return x_;
+    else if(index==1) return y_;
+    else return z_;
   }
-  */
-    
+
+  std::stringstream& operator<<(std::stringstream &ss, const Vector3& vector1){
+    ss << "(x: " << vector1.x_
+       << ", y: " << vector1.y_
+       << ", z: " << vector1.z_
+       << ")";
+    return ss;
+  }
+
   const Vector3 Vector3::kUnitX = Vector3(1.0, 0.0, 0.0);
   const Vector3 Vector3::kUnitY = Vector3(0.0, 1.0, 0.0);
   const Vector3 Vector3::kUnitZ = Vector3(0.0, 0.0, 1.0);

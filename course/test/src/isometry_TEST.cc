@@ -44,11 +44,9 @@ GTEST_TEST(Vector3Test, Vector3Operations) {
   EXPECT_EQ(p[1], 2.);
   EXPECT_EQ(p[2], 3.);
 
-  // Wasn't able to sort this out, got a lot of problems with the proposed
-  // solution commented in the .cc and .h, I think related to CMake versions
-  // std::stringstream ss;
-  // ss << p;
-  // EXPECT_EQ(ss.str(), "(x: 1, y: 2, z: 3)");
+  std::stringstream ss;
+  ss << p;
+  EXPECT_EQ(ss.str(), "(x: 1, y: 2, z: 3)");
 
   EXPECT_TRUE(Vector3::kUnitX == Vector3(1., 0., 0));
   EXPECT_TRUE(Vector3::kUnitX != Vector3(1., 1., 0));
@@ -58,16 +56,9 @@ GTEST_TEST(Vector3Test, Vector3Operations) {
 
   Vector3 t;
   EXPECT_EQ(t, Vector3::kZero);
-  // These three are asking me for an lvalue,
-  // Because the returned value from the getters to
-  // the internal variables just return the values
-  // Should I define a different getter to the internal
-  // repr, or just make one that returns an internal reference?
-  /*
   t.x() = 1.;
   t[1] = 2.;
   t.z() = 3.;
-  */
   EXPECT_EQ(t, p);
 }
 
