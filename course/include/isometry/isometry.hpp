@@ -2,7 +2,9 @@
  * Isometry library
  * Author: Agustin Alba Chicar, 2019
  * Author: Gerardo Puga, 2020
+ * Author: Jorge J. Perez, 2020
  */
+
 
 #pragma once
 
