@@ -18,7 +18,7 @@ namespace math {
     x_{0.0}, y_{0.0}, z_{0.0} {}
 
   double Vector3::norm() const {
-    return sqrt(pow(x_, 2) + pow(y_, 2) + pow(z_, 2));
+    return sqrt(dot(*this));
   }
 
   double Vector3::x() const {
