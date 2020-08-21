@@ -39,13 +39,13 @@ class Vector3 {
   static const Vector3 kUnitZ;
   static const Vector3 kZero;
 
-  const bool operator==(const Vector3& vector1) const;
-  const bool operator!=(const Vector3& vector1) const;
-  const Vector3 operator+(const Vector3& vector1) const;
-  const Vector3 operator-(const Vector3& vector1) const;  
-  const Vector3 operator*(const Vector3& vector1) const;
-  const Vector3 operator/(const Vector3& vector1) const;
-  const Vector3 operator/(const double& div) const;
+  bool operator==(const Vector3& vector1) const;
+  bool operator!=(const Vector3& vector1) const;
+  Vector3 operator+(const Vector3& vector1) const;
+  Vector3 operator-(const Vector3& vector1) const;
+  Vector3 operator*(const Vector3& vector1) const;
+  Vector3 operator/(const Vector3& vector1) const;
+  Vector3 operator/(const double& div) const;
 
   Vector3& operator+=(const Vector3& vector1);
   Vector3& operator-=(const Vector3& vector1);

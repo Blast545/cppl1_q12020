@@ -55,38 +55,38 @@ namespace math {
             x_*vector1.y() - y_*vector1.x()};
   }
 
-  const bool Vector3::operator==(const Vector3& vector1) const {
+  bool Vector3::operator==(const Vector3& vector1) const {
     return(
       (x_ == vector1.x_) &&
       (y_ == vector1.y_) &&
       (z_ == vector1.z_));
   }
 
-  const bool Vector3::operator!=(const Vector3& vector1) const {
+  bool Vector3::operator!=(const Vector3& vector1) const {
     return(!(
       (x_ == vector1.x_) &&
       (y_ == vector1.y_) &&
       (z_ == vector1.z_)));
   }
 
-  const Vector3 Vector3::operator+(const Vector3& vector1) const {
-    return Vector3(x_+vector1.x_, y_+vector1.y_, z_+vector1.z_);
+  Vector3 Vector3::operator+(const Vector3& vector1) const {
+    return {x_+vector1.x_, y_+vector1.y_, z_+vector1.z_};
   }
 
-  const Vector3 Vector3::operator-(const Vector3& vector1) const {
-    return Vector3(x_-vector1.x_, y_-vector1.y_, z_-vector1.z_);
+  Vector3 Vector3::operator-(const Vector3& vector1) const {
+    return {x_-vector1.x_, y_-vector1.y_, z_-vector1.z_};
   }
 
-  const Vector3 Vector3::operator*(const Vector3& vector1) const {
-    return Vector3(x_*vector1.x_, y_*vector1.y_, z_*vector1.z_);
+  Vector3 Vector3::operator*(const Vector3& vector1) const {
+    return {x_*vector1.x_, y_*vector1.y_, z_*vector1.z_};
   }
 
-  const Vector3 Vector3::operator/(const Vector3& vector1) const {
-    return Vector3(x_/vector1.x_, y_/vector1.y_, z_/vector1.z_);
+  Vector3 Vector3::operator/(const Vector3& vector1) const {
+    return {x_/vector1.x_, y_/vector1.y_, z_/vector1.z_};
   }
 
-  const Vector3 Vector3::operator/(const double& div) const {
-    return Vector3(x_/div, y_/div, z_/div);
+  Vector3 Vector3::operator/(const double& div) const {
+    return {x_/div, y_/div, z_/div};
   }
 
   Vector3& Vector3::operator+=(const Vector3& vector1) {
