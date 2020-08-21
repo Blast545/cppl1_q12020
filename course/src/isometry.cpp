@@ -15,7 +15,7 @@ namespace math {
     x_{x}, y_{y}, z_{z} {}
 
   Vector3::Vector3() :
-    x_{1.0}, y_{2.0}, z_{3.0} {}
+    x_{0.0}, y_{0.0}, z_{0.0} {}
 
   double Vector3::norm() const {
     return sqrt(pow(x_, 2) + pow(y_, 2) + pow(z_, 2));
@@ -173,7 +173,7 @@ namespace math {
   const Vector3 Vector3::kUnitX = Vector3(1.0, 0.0, 0.0);
   const Vector3 Vector3::kUnitY = Vector3(0.0, 1.0, 0.0);
   const Vector3 Vector3::kUnitZ = Vector3(0.0, 0.0, 1.0);
-  const Vector3 Vector3::kZero = Vector3(1.0, 2.0, 3.0);
+  const Vector3 Vector3::kZero = Vector3(0.0, 0.0, 0.0);
 
 }  // namespace math
 }  // namespace ekumen
