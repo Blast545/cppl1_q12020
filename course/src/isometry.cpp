@@ -12,10 +12,10 @@ namespace ekumen {
 namespace math {
 
   Vector3::Vector3(double x, double y, double z) :
-    x_(x), y_(y), z_(z) {}
+    x_{x}, y_{y}, z_{z} {}
 
   Vector3::Vector3() :
-    x_(1.0), y_(2.0), z_(3.0) {}
+    x_{1.0}, y_{2.0}, z_{3.0} {}
 
   double Vector3::norm() const {
     return sqrt(pow(x_, 2) + pow(y_, 2) + pow(z_, 2));
