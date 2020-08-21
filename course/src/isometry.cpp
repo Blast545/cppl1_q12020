@@ -11,6 +11,11 @@
 namespace ekumen {
 namespace math {
 
+  // Used for double comparison, not public
+  static bool cmpf(double A, double B, double epsilon) {
+    return (fabs(A - B) < epsilon);
+  }
+
   Vector3::Vector3(double x, double y, double z) :
     x_{x}, y_{y}, z_{z} {}
 
@@ -58,16 +63,16 @@ namespace math {
 
   bool Vector3::operator==(const Vector3& vector1) const {
     return(
-      (x_ == vector1.x_) &&
-      (y_ == vector1.y_) &&
-      (z_ == vector1.z_));
+      cmpf(x_, vector1.x_, 0.00001f) &&
+      cmpf(y_, vector1.y_, 0.00001f) &&
+      cmpf(z_, vector1.z_, 0.00001f));
   }
 
   bool Vector3::operator!=(const Vector3& vector1) const {
     return(!(
-      (x_ == vector1.x_) &&
-      (y_ == vector1.y_) &&
-      (z_ == vector1.z_)));
+      cmpf(x_, vector1.x_, 0.00001f) &&
+      cmpf(y_, vector1.y_, 0.00001f) &&
+      cmpf(z_, vector1.z_, 0.00001f)));
   }
 
   Vector3 Vector3::operator+(const Vector3& vector1) const {
