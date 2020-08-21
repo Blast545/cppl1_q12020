@@ -45,7 +45,7 @@ class Vector3 {
   Vector3 operator-(const Vector3& vector1) const;
   Vector3 operator*(const Vector3& vector1) const;
   Vector3 operator/(const Vector3& vector1) const;
-  Vector3 operator/(const double& div) const;
+  Vector3 operator/(const double div) const;
 
   Vector3& operator+=(const Vector3& vector1);
   Vector3& operator-=(const Vector3& vector1);

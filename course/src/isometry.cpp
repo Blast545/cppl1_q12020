@@ -85,7 +85,7 @@ namespace math {
     return {x_/vector1.x_, y_/vector1.y_, z_/vector1.z_};
   }
 
-  Vector3 Vector3::operator/(const double& div) const {
+  Vector3 Vector3::operator/(const double div) const {
     return {x_/div, y_/div, z_/div};
   }
 
