@@ -18,7 +18,7 @@ namespace math {
 
 class Vector3 {
  public:
-  Vector3(double x, double y, double z);
+  Vector3(const double x, const double y, const double z);
   Vector3();
   double norm(void) const;
 
