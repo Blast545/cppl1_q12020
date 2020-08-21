@@ -51,11 +51,11 @@ class Vector3 {
   Vector3& operator-=(const Vector3& vector1);
   Vector3& operator*=(const Vector3& vector1);
   Vector3& operator/=(const Vector3& vector1);
-  Vector3& operator*=(const double& scalar);
-  Vector3& operator/=(const double& scalar);
+  Vector3& operator*=(const double scalar);
+  Vector3& operator/=(const double scalar);
 
-  friend const Vector3 operator*(const Vector3& vector1, const int& scalar);
-  friend const Vector3 operator*(const int& scalar, const Vector3& vector1);
+  friend const Vector3 operator*(const Vector3& vector1, const int scalar);
+  friend const Vector3 operator*(const int scalar, const Vector3& vector1);
 
   double operator[](int) const;
   double &operator[](int);

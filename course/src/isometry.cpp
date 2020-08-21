@@ -117,25 +117,25 @@ namespace math {
     return *this;
   }
 
-  Vector3& Vector3::operator*=(const double& scalar) {
+  Vector3& Vector3::operator*=(const double scalar) {
     x_ *= scalar;
     y_ *= scalar;
     z_ *= scalar;
     return *this;
   }
 
-  Vector3& Vector3::operator/=(const double& scalar) {
+  Vector3& Vector3::operator/=(const double scalar) {
     x_ /= scalar;
     y_ /= scalar;
     z_ /= scalar;
     return *this;
   }
 
-  const Vector3 operator*(const Vector3& vector1, const int& scalar) {
+  const Vector3 operator*(const Vector3& vector1, const int scalar) {
     return Vector3(vector1.x_*scalar, vector1.y_*scalar, vector1.z_*scalar);
   }
 
-  const Vector3 operator*(const int& scalar, const Vector3& vector1) {
+  const Vector3 operator*(const int scalar, const Vector3& vector1) {
     return Vector3(vector1.x_*scalar, vector1.y_*scalar, vector1.z_*scalar);
   }
 
