@@ -20,16 +20,16 @@ class Vector3 {
  public:
   Vector3(const double x, const double y, const double z);
   Vector3();
-  double norm(void) const;
+  double norm() const;
 
-  double x(void) const;
-  double &x(void);
+  double x() const;
+  double &x();
 
-  double y(void) const;
-  double &y(void);
+  double y() const;
+  double &y();
   
-  double z(void) const;
-  double &z(void);
+  double z() const;
+  double &z();
 
   double dot(const Vector3& vector1) const;
   Vector3 cross(const Vector3& vector1) const;
