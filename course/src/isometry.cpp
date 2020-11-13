@@ -323,11 +323,11 @@ namespace math {
     return *this;
   }
 
-  Vector3 Matrix3::operator[](int row) const {
+  Vector3 Matrix3::operator[](const int row) const {
     return rows.at(row);
   }
 
-  Vector3 & Matrix3::operator[](int row) {
+  Vector3 & Matrix3::operator[](const int row) {
     return rows.at(row);
   }
 
