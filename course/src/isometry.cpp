@@ -71,10 +71,7 @@ namespace math {
   }
 
   bool Vector3::operator!=(const Vector3& vector1) const {
-    return(!(
-      almost_equal(x_, vector1.x_, 3) &&
-      almost_equal(y_, vector1.y_, 3) &&
-      almost_equal(z_, vector1.z_, 3)));
+    return !(*this == vector1);
   }
 
   Vector3 Vector3::operator+(const Vector3& vector1) const {
@@ -215,10 +212,10 @@ namespace math {
   }
 
   bool Matrix3::operator!=(const Matrix3& matrix1) const {
-    return(!(
+    return !(
       rows.at(0) == matrix1.rows.at(0) &&
       rows.at(1) == matrix1.rows.at(1) &&
-      rows.at(2) == matrix1.rows.at(2)));
+      rows.at(2) == matrix1.rows.at(2));
   }
 
   Matrix3 Matrix3::operator+(const Matrix3& matrix1) const {
