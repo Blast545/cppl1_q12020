@@ -12,8 +12,10 @@ namespace ekumen {
 namespace math {
 
   // Used for double comparison, not public
-  static bool cmpf(double A, double B, double epsilon) {
-    return (fabs(A - B) < epsilon);
+  static bool almost_equal(double x, double y, int ulp) {
+    return std::fabs(x-y) <=
+      std::numeric_limits<double>::epsilon() * std::fabs(x+y) * ulp ||
+      std::fabs(x-y) < std::numeric_limits<double>::min();
   }
 
   Vector3::Vector3(double x, double y, double z) :
@@ -63,16 +65,16 @@ namespace math {
 
   bool Vector3::operator==(const Vector3& vector1) const {
     return(
-      cmpf(x_, vector1.x_, 0.00001f) &&
-      cmpf(y_, vector1.y_, 0.00001f) &&
-      cmpf(z_, vector1.z_, 0.00001f));
+      almost_equal(x_, vector1.x_, 3) &&
+      almost_equal(y_, vector1.y_, 3) &&
+      almost_equal(z_, vector1.z_, 3));
   }
 
   bool Vector3::operator!=(const Vector3& vector1) const {
     return(!(
-      cmpf(x_, vector1.x_, 0.00001f) &&
-      cmpf(y_, vector1.y_, 0.00001f) &&
-      cmpf(z_, vector1.z_, 0.00001f)));
+      almost_equal(x_, vector1.x_, 3) &&
+      almost_equal(y_, vector1.y_, 3) &&
+      almost_equal(z_, vector1.z_, 3)));
   }
 
   Vector3 Vector3::operator+(const Vector3& vector1) const {

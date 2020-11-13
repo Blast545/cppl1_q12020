@@ -14,6 +14,7 @@
 #include <sstream>
 #include <string>
 #include <array>
+#include <limits>
 
 namespace ekumen {
 
