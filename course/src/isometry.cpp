@@ -352,7 +352,7 @@ namespace math {
   }
 
   Vector3 Matrix3::row(const int row) const {
-    return { rows.at(row)};
+    return rows.at(row);
   }
 
 }  // namespace math
