@@ -13,6 +13,8 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <array>
+#include <limits>
 
 namespace ekumen {
 
@@ -56,8 +58,8 @@ class Vector3 {
   Vector3& operator*=(const double scalar);
   Vector3& operator/=(const double scalar);
 
-  friend const Vector3 operator*(const Vector3& vector1, const int scalar);
-  friend const Vector3 operator*(const int scalar, const Vector3& vector1);
+  friend const Vector3 operator*(const Vector3& vector1, const double scalar);
+  friend const Vector3 operator*(const double scalar, const Vector3& vector1);
 
   double operator[](int) const;
   double &operator[](int);
@@ -70,6 +72,54 @@ class Vector3 {
   double z_;
 };
 
+class Matrix3 {
+ public:
+  Matrix3(
+    const double a1, const double a2, const double a3,
+    const double b1, const double b2, const double b3,
+    const double c1, const double c2, const double c3
+  );
+  Matrix3(const Vector3& row1, const Vector3& row2, const Vector3& row3);
+  Matrix3();
+
+  static const Matrix3 kIdentity;
+  static const Matrix3 kOnes;
+  static const Matrix3 kZero;
+
+  bool operator==(const Matrix3& matrix1) const;
+  bool operator!=(const Matrix3& matrix1) const;
+  Matrix3 operator+(const Matrix3& matrix1) const;
+  Matrix3 operator-(const Matrix3& matrix1) const;
+  Matrix3 operator*(const Matrix3& matrix1) const;
+  Matrix3 operator/(const Matrix3& matrix1) const;
+  Matrix3 operator/(const double divider) const;
+
+  friend Matrix3 operator*(const Matrix3& matrix1, const double scalar);
+  friend Matrix3 operator*(const double scalar, const Matrix3& matrix1);
+
+  friend Vector3 operator*(const Matrix3& matrix1, const Vector3& vector1);
+
+  double det() const;
+
+  Matrix3& operator+=(const Matrix3& matrix1);
+  Matrix3& operator-=(const Matrix3& matrix1);
+  Matrix3& operator*=(const Matrix3& matrix1);
+  Matrix3& operator/=(const Matrix3& matrix1);
+  Matrix3& operator*=(const double scalar);
+  Matrix3& operator/=(const double scalar);
+
+  friend std::ostream& operator<<(std::ostream &ss, const Matrix3& matrix1);
+
+  Vector3 col(const int column) const;
+  Vector3 row(const int row) const;
+
+  Vector3 operator[](const int) const;
+  Vector3 &operator[](const int);
+
+ private:
+   std::array<Vector3, 3> rows;
+};
+  
 }  // namespace math
 
 }  // namespace ekumen
