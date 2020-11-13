@@ -253,14 +253,14 @@ namespace math {
       rows.at(2)/divider};
   }
 
-  const Matrix3 operator*(const Matrix3& matrix1, const double scalar) {
+  Matrix3 operator*(const Matrix3& matrix1, const double scalar) {
     return {
       matrix1.rows.at(0)*scalar,
       matrix1.rows.at(1)*scalar,
       matrix1.rows.at(2)*scalar};
   }
 
-  const Matrix3 operator*(const double scalar, const Matrix3& matrix1) {
+  Matrix3 operator*(const double scalar, const Matrix3& matrix1) {
     return {
       matrix1.rows.at(0)*scalar,
       matrix1.rows.at(1)*scalar,
@@ -274,11 +274,11 @@ namespace math {
       rows[0][2] * (rows[1][0]*rows[2][1] - rows[1][1]*rows[2][0]);
   }
 
-  const Vector3 operator*(const Matrix3& matrix1, const Vector3& vector1) {
-    return Vector3(
+  Vector3 operator*(const Matrix3& matrix1, const Vector3& vector1) {
+    return {
       matrix1.rows.at(0).dot(vector1),
       matrix1.rows.at(1).dot(vector1),
-      matrix1.rows.at(2).dot(vector1));
+      matrix1.rows.at(2).dot(vector1)};
   }
 
   Matrix3& Matrix3::operator+=(const Matrix3& matrix1) {

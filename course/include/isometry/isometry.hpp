@@ -94,10 +94,10 @@ class Matrix3 {
   Matrix3 operator/(const Matrix3& matrix1) const;
   Matrix3 operator/(const double divider) const;
 
-  friend const Matrix3 operator*(const Matrix3& matrix1, const double scalar);
-  friend const Matrix3 operator*(const double scalar, const Matrix3& matrix1);
+  friend Matrix3 operator*(const Matrix3& matrix1, const double scalar);
+  friend Matrix3 operator*(const double scalar, const Matrix3& matrix1);
 
-  friend const Vector3 operator*(const Matrix3& matrix1, const Vector3& vector1);
+  friend Vector3 operator*(const Matrix3& matrix1, const Vector3& vector1);
 
   double det() const;
 
