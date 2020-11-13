@@ -196,13 +196,13 @@ namespace math {
       Vector3{0.0, 0.0, 0.0}, Vector3{0.0, 0.0, 0.0}, Vector3{0.0, 0.0, 0.0}} {}
 
   const Matrix3 Matrix3::kIdentity =
-    Matrix3({1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0});
+    Matrix3(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
 
   const Matrix3 Matrix3::kZero =
-    Matrix3({0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0});
+    Matrix3(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
   const Matrix3 Matrix3::kOnes =
-    Matrix3({1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0});
+    Matrix3(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
 
   bool Matrix3::operator==(const Matrix3& matrix1) const {
     return(
